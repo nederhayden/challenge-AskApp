@@ -7,10 +7,9 @@ export const Header = () => {
       <Container
         maxWidth="xl"
         sx={{
-          padding: "1.15rem",
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-between",
+          padding: "1.15rem",
         }}
       >
         <img src={AskLogo} alt="logo" />
