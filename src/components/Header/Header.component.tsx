@@ -1,20 +1,18 @@
-import { Box, Button, Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import AskLogo from "../../assets/logo.svg";
 
 export const Header = () => {
   return (
-    <Box component="header">
-      <Container
-        maxWidth="xl"
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "1.15rem",
-        }}
-      >
-        <img src={AskLogo} alt="logo" />
-        <Button>Reports</Button>
-      </Container>
-    </Box>
+    <Container
+      maxWidth="xl"
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "1.15rem",
+      }}
+    >
+      <img src={AskLogo} alt="logo" />
+      <Button sx={{ color: "gray", fontWeight: "bold" }}>Reports</Button>
+    </Container>
   );
 };

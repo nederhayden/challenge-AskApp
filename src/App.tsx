@@ -1,13 +1,19 @@
-import { CssBaseline } from "@mui/material";
-import { Layout } from "./components/Layout/Layout.component";
+import { Box, CssBaseline } from "@mui/material";
+import { Header } from "./components/Header/Header.component";
 import { AppRoutes } from "./routes/appRoutes";
+import { ReactNode } from "react";
 
-function App() {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+function App({ children }: LayoutProps) {
   return (
-    <Layout>
+    <Box sx={{ height: "100vh" }}>
       <CssBaseline />
+      <Header />
       <AppRoutes />
-    </Layout>
+    </Box>
   );
 }
 
