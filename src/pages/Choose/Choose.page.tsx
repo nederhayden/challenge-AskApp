@@ -10,11 +10,14 @@ import {
 } from "@mui/material";
 
 import AddIcon from "@mui/icons-material/Add";
+import { useReportContext } from "../../hooks/useReportContext";
+import { useNavigate } from "react-router-dom";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
+// OPTION LIST OF QUESTION NUMBERS
 const defaultQuestionsQtd = [2, 3, 4, 5, 6];
 
 export const ChoosePage = ({ children }: LayoutProps) => {
@@ -23,17 +26,23 @@ export const ChoosePage = ({ children }: LayoutProps) => {
     null
   );
 
+  const navigate = useNavigate();
+  const { handleSetQuestionsQtd } = useReportContext();
+
+  // UPDATE STATE
   const handleShowMoreQUestionInput = () => setShowMoreQuestionsInput(true);
   const handleCloseMoreQUestionInput = () => setShowMoreQuestionsInput(false);
 
+  // GET YOUR CHOSEN NUMBER
   const handleSelectNumberOfQuestions = (
     event: MouseEvent<HTMLButtonElement>
   ) => {
-    const targetName = Number(event.currentTarget.name);
+    const currentTarget = Number(event.currentTarget.name);
+    const targetName = currentTarget;
 
     if (targetName === numberOfQuestions) return setNumberOfQuestions(null);
 
-    setNumberOfQuestions(Number(event.currentTarget.name));
+    setNumberOfQuestions(currentTarget);
   };
 
   const handleCancelSelectionValues = () => {
@@ -41,6 +50,7 @@ export const ChoosePage = ({ children }: LayoutProps) => {
     handleCloseMoreQUestionInput();
   };
 
+  // GET THE NUMBER ENTERED BY THE USER
   const handleChangeNumberOfQuestions = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
@@ -49,6 +59,11 @@ export const ChoosePage = ({ children }: LayoutProps) => {
     if (inputValue < 0) return;
 
     setNumberOfQuestions(inputValue);
+  };
+
+  const handleConfirm = () => {
+    handleSetQuestionsQtd(Number(numberOfQuestions));
+    navigate("/start");
   };
 
   return (
@@ -74,7 +89,11 @@ export const ChoosePage = ({ children }: LayoutProps) => {
       >
         {defaultQuestionsQtd.map((questionQtd) => (
           <Grid item key={questionQtd}>
-            <Button variant="outlined" onClick={handleSelectNumberOfQuestions}>
+            <Button
+              variant="outlined"
+              name={String(questionQtd)}
+              onClick={handleSelectNumberOfQuestions}
+            >
               {questionQtd}
             </Button>
           </Grid>
@@ -87,9 +106,10 @@ export const ChoosePage = ({ children }: LayoutProps) => {
                 type="number"
                 color="primary"
                 label="Number of Questions"
-                placeholder="Enter with a number of questions"
+                placeholder="Enter a number questions"
                 value={numberOfQuestions || ""}
                 onChange={handleChangeNumberOfQuestions}
+                focused={true}
               />
             ) : (
               <Button variant="outlined" onClick={handleShowMoreQUestionInput}>
@@ -113,7 +133,8 @@ export const ChoosePage = ({ children }: LayoutProps) => {
           variant="contained"
           size="large"
           sx={{ width: "20rem", margin: ".5rem .5rem" }}
-          disabled
+          disabled={!numberOfQuestions}
+          onClick={handleConfirm}
         >
           Confirm
         </Button>
