@@ -90,7 +90,9 @@ export const ChoosePage = ({ children }: LayoutProps) => {
         {defaultQuestionsQtd.map((questionQtd) => (
           <Grid item key={questionQtd}>
             <Button
-              variant="outlined"
+              variant={
+                numberOfQuestions === questionQtd ? "contained" : "outlined"
+              }
               name={String(questionQtd)}
               onClick={handleSelectNumberOfQuestions}
             >
