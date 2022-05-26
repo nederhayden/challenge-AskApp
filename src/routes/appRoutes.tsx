@@ -2,15 +2,14 @@
 import { Routes, Route } from "react-router-dom";
 
 // pages
-import { ChoosePage } from "../pages/Choose/Choose.page";
-import { StartPage } from "../pages/Start/Start.page";
+import * as Pages from "pages";
 
 export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/">
-        <Route index element={<ChoosePage />} />
-        <Route path="/start" element={<StartPage />} />
+        <Route index element={<Pages.ChoosePage />} />
+        <Route path="/start" element={<Pages.StartPage />} />
       </Route>
     </Routes>
   );

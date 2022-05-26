@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Button, Container } from "@mui/material";
 
 // svg
-import AskLogo from "../../assets/logo.svg";
+import AskLogo from "assets/logo.svg";
 
 export const Header = () => {
   return (

@@ -1,5 +1,5 @@
 // context
-import { useReportContext } from "../../hooks/useReportContext";
+import { useReportContext } from "hooks/useReportContext";
 
 // router dom
 import { useNavigate } from "react-router-dom";
