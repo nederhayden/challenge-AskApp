@@ -1,18 +1,21 @@
-import { Box, CssBaseline } from "@mui/material";
-import { Header } from "./components/Header/Header.component";
+// context
+import { ReportContextProvider } from "./context/Report.context";
+
+// components
 import { AppRoutes } from "./routes/appRoutes";
-import { ReactNode } from "react";
+import { Header } from "./components/Header/Header.component";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+// bootstrap
+import { Box, CssBaseline } from "@mui/material";
 
-function App({ children }: LayoutProps) {
+function App() {
   return (
     <Box sx={{ height: "100vh" }}>
-      <CssBaseline />
-      <Header />
-      <AppRoutes />
+      <ReportContextProvider>
+        <CssBaseline />
+        <Header />
+        <AppRoutes />
+      </ReportContextProvider>
     </Box>
   );
 }

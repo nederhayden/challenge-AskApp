@@ -1,12 +1,16 @@
-// import * as Pages from "pages";
+// router dom
 import { Routes, Route } from "react-router-dom";
-import { ChoosePage } from "../pages";
+
+// pages
+import { ChoosePage } from "../pages/Choose/Choose.page";
+import { StartPage } from "../pages/Start/Start.page";
 
 export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/">
-        <Route index element={<ChoosePage children />} />
+        <Route index element={<ChoosePage />} />
+        <Route path="/start" element={<StartPage />} />
       </Route>
     </Routes>
   );

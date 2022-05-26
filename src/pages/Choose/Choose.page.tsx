@@ -1,4 +1,14 @@
-import { ReactNode, useState, MouseEvent, ChangeEvent } from "react";
+// react
+import { useState, MouseEvent, ChangeEvent } from "react";
+
+// router dom
+import { useNavigate } from "react-router-dom";
+
+// context
+import { useReportContext } from "../../hooks/useReportContext";
+
+// bootstrap
+import AddIcon from "@mui/icons-material/Add";
 import {
   Box,
   Button,
@@ -9,31 +19,27 @@ import {
   Typography,
 } from "@mui/material";
 
-import AddIcon from "@mui/icons-material/Add";
-import { useReportContext } from "../../hooks/useReportContext";
-import { useNavigate } from "react-router-dom";
-
-interface LayoutProps {
-  children: ReactNode;
-}
-
-// OPTION LIST OF QUESTION NUMBERS
+// option list of question numbers
 const defaultQuestionsQtd = [2, 3, 4, 5, 6];
 
-export const ChoosePage = ({ children }: LayoutProps) => {
+export const ChoosePage = () => {
   const [showMoreQuestionsInput, setShowMoreQuestionsInput] = useState(false);
   const [numberOfQuestions, setNumberOfQuestions] = useState<number | null>(
     null
   );
 
-  const navigate = useNavigate();
   const { handleSetQuestionsQtd } = useReportContext();
 
-  // UPDATE STATE
-  const handleShowMoreQUestionInput = () => setShowMoreQuestionsInput(true);
+  const navigate = useNavigate();
+
+  //  update state
+  const handleShowMoreQUestionInput = () => {
+    setNumberOfQuestions(null);
+    setShowMoreQuestionsInput(true);
+  };
   const handleCloseMoreQUestionInput = () => setShowMoreQuestionsInput(false);
 
-  // GET YOUR CHOSEN NUMBER
+  // get your chosen number
   const handleSelectNumberOfQuestions = (
     event: MouseEvent<HTMLButtonElement>
   ) => {
@@ -50,7 +56,7 @@ export const ChoosePage = ({ children }: LayoutProps) => {
     handleCloseMoreQUestionInput();
   };
 
-  // GET THE NUMBER ENTERED BY THE USER
+  // get the number entered by the user
   const handleChangeNumberOfQuestions = (
     event: ChangeEvent<HTMLInputElement>
   ) => {
@@ -62,6 +68,7 @@ export const ChoosePage = ({ children }: LayoutProps) => {
   };
 
   const handleConfirm = () => {
+    // passing numberOfQuestions for start page
     handleSetQuestionsQtd(Number(numberOfQuestions));
     navigate("/start");
   };
@@ -70,7 +77,7 @@ export const ChoosePage = ({ children }: LayoutProps) => {
     <Container
       maxWidth="xl"
       sx={{
-        height: "92%",
+        height: "90%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
