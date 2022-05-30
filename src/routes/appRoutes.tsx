@@ -10,6 +10,7 @@ export const AppRoutes = () => {
       <Route path="/">
         <Route index element={<Pages.ChoosePage />} />
         <Route path="/start" element={<Pages.StartPage />} />
+        <Route path="/questions" element={<Pages.QuestionsPage />} />
       </Route>
     </Routes>
   );

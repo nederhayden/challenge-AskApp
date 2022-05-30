@@ -3,20 +3,19 @@ import { ReportContextProvider } from "./context/Report.context";
 
 // components
 import { AppRoutes } from "./routes/appRoutes";
-import { Header } from "./components/Header/Header.component";
 
 // bootstrap
-import { Box, CssBaseline } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { Layout } from "components/index";
 
 function App() {
   return (
-    <Box sx={{ height: "100vh" }}>
-      <ReportContextProvider>
-        <CssBaseline />
-        <Header />
+    <ReportContextProvider>
+      <CssBaseline />
+      <Layout>
         <AppRoutes />
-      </ReportContextProvider>
-    </Box>
+      </Layout>
+    </ReportContextProvider>
   );
 }
 

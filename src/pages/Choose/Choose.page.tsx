@@ -18,6 +18,7 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
+import { ButtonComponent } from "components/Button/Button.component";
 
 // option list of question numbers
 const defaultQuestionsQtd = [2, 3, 4, 5, 6];
@@ -77,10 +78,8 @@ export const ChoosePage = () => {
     <Container
       maxWidth="xl"
       sx={{
-        height: "90%",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
         flexDirection: "column",
       }}
     >
