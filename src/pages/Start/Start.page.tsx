@@ -5,8 +5,7 @@ import { useReportContext } from "hooks/useReportContext";
 import { useNavigate } from "react-router-dom";
 
 // bootstrap
-import { Box, Typography, Stack } from "@mui/material";
-import { ButtonComponent } from "components/Button/Button.component";
+import { Box, Typography, Stack, Button } from "@mui/material";
 
 export const StartPage = () => {
   const { questionsQtd } = useReportContext();
@@ -29,19 +28,22 @@ export const StartPage = () => {
         </Typography>
         <Stack direction="row" spacing={2}>
           <Box>
-            <ButtonComponent
-              name="Cancel"
+            <Button
               variant="outlined"
-              width="6rem"
+              size="large"
+              sx={{ width: "6rem", margin: ".5rem .5rem", fontWeight: "bold" }}
               onClick={handleReturnToChoose}
-            />
-
-            <ButtonComponent
-              name="Start"
+            >
+              Cancel
+            </Button>
+            <Button
               variant="contained"
-              width="6rem"
+              size="large"
+              sx={{ width: "6rem", margin: ".5rem .5rem", fontWeight: "bold" }}
               onClick={handleStart}
-            />
+            >
+              Start
+            </Button>
           </Box>
         </Stack>
       </Stack>

@@ -18,7 +18,6 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { ButtonComponent } from "components/Button/Button.component";
 
 // option list of question numbers
 const defaultQuestionsQtd = [2, 3, 4, 5, 6];
@@ -101,6 +100,7 @@ export const ChoosePage = () => {
               }
               name={String(questionQtd)}
               onClick={handleSelectNumberOfQuestions}
+              sx={{ fontWeight: "bold" }}
             >
               {questionQtd}
             </Button>
@@ -132,7 +132,7 @@ export const ChoosePage = () => {
         <Button
           variant="outlined"
           size="large"
-          sx={{ width: "20rem", margin: ".5rem .5rem" }}
+          sx={{ width: "20rem", margin: ".5rem .5rem", fontWeight: "bold" }}
           onClick={handleCancelSelectionValues}
         >
           Cancel
@@ -140,7 +140,7 @@ export const ChoosePage = () => {
         <Button
           variant="contained"
           size="large"
-          sx={{ width: "20rem", margin: ".5rem .5rem" }}
+          sx={{ width: "20rem", margin: ".5rem .5rem", fontWeight: "bold" }}
           disabled={!numberOfQuestions}
           onClick={handleConfirm}
         >

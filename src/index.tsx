@@ -1,6 +1,6 @@
 // react
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 
 // components
 import App from "./App";
@@ -8,13 +8,15 @@ import App from "./App";
 // router dom
 import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(
+const container = document.getElementById("app");
+const root = createRoot(container!);
+
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 
 // Sobre o ReactRouter
