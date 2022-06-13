@@ -1,7 +1,7 @@
 // react
 import { ReactNode } from "react";
 
-// bootstrap
+// mui/material
 import { Box, Container } from "@mui/material";
 
 // components

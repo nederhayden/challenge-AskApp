@@ -4,7 +4,7 @@ import { ReportContextProvider } from "./context/Report.context";
 // components
 import { AppRoutes } from "./routes/appRoutes";
 
-// bootstrap
+// mui/material
 import { CssBaseline } from "@mui/material";
 import { Layout } from "components/index";
 

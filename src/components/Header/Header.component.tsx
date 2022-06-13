@@ -1,7 +1,7 @@
 // router dom
 import { Link } from "react-router-dom";
 
-// bootstrap
+// mui/material
 import { Button, Container } from "@mui/material";
 
 // svg

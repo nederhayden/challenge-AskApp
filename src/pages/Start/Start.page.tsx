@@ -4,7 +4,7 @@ import { useReportContext } from "hooks/useReportContext";
 // router dom
 import { useNavigate } from "react-router-dom";
 
-// bootstrap
+// mui/material
 import { Box, Typography, Stack, Button } from "@mui/material";
 
 export const StartPage = () => {
