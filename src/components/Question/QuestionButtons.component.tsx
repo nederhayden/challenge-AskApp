@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 // mui/material
 import { Box, Button } from "@mui/material";
 
-export const QuestionButtons = () => {
+export const QuestionButtons = ({
+  handleNextStep,
+  handlePreviousStep,
+}: any) => {
   const navigate = useNavigate();
 
   const handleCancel = () => {
@@ -19,7 +22,11 @@ export const QuestionButtons = () => {
         justifyContent: "space-between",
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          marginRight: ".6rem",
+        }}
+      >
         <Button
           variant="outlined"
           size="large"
@@ -40,7 +47,7 @@ export const QuestionButtons = () => {
             marginRight: ".6rem",
             fontWeight: "bold",
           }}
-          disabled
+          onClick={handlePreviousStep}
         >
           Back
         </Button>
@@ -52,13 +59,17 @@ export const QuestionButtons = () => {
             marginRight: ".6rem",
             fontWeight: "bold",
           }}
+          onClick={handleNextStep}
         >
           Next
         </Button>
         <Button
           variant="contained"
           size="large"
-          sx={{ width: "20rem", fontWeight: "bold" }}
+          sx={{
+            width: "20rem",
+            fontWeight: "bold",
+          }}
         >
           Go To Unanswered Questions
         </Button>

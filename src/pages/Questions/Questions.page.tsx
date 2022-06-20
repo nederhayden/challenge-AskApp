@@ -43,6 +43,15 @@ export const QuestionsPage = () => {
     getData();
   }, [questionsQtd]);
 
+  const handlePreviousStep = () => {
+    if (activeQuestion === 0) return;
+    setActiveQuestion(activeQuestion - 1);
+  };
+
+  const handleNextStep = () => {
+    return setActiveQuestion(activeQuestion + 1);
+  };
+
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -85,7 +94,10 @@ export const QuestionsPage = () => {
                   />
                 </Card>
 
-                <QuestionButtons />
+                <QuestionButtons
+                  handlePreviousStep={handlePreviousStep}
+                  handleNextStep={handleNextStep}
+                />
               </FormControl>
             );
           }
